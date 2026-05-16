@@ -95,7 +95,7 @@ void round_(){
     clean();
 }
 void play(){
-    int again,t;
+    int again,t,hours,minutes,seconds;
     printf("Enter delay in miliseconds: ");
     scanf("%d", &delay);
     getchar();
@@ -109,8 +109,11 @@ void play(){
         }
         end=clock()/CLOCKS_PER_SEC;
         t=end-start;
-        printf("correct: %d, wrong: %d, total: %d,time %d:%d",correct,wrong
-        ,correct+wrong,t/60,t%60);
+        hours = t / 60 / 60;
+        minutes = (t/60)%60;
+        seconds = t % 60;
+        printf("correct: %d, wrong: %d, total: %d,time %02d:%02d:%02d",correct,wrong
+        ,correct+wrong,hours,minutes,seconds);
         Sleep(10000);
         clean();
         printf("again enter 0 other exit: ");
